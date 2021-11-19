@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Selecting an Element!</title>
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <ul class="container">
+        <li class="box" id="box-1"></li>
+        <li class="box box-to-select" id="box-2"></li>
+        <li class="box box-to-select" id="box-3"></li>
+        <li class="box box-to-select" id="box-4"></li>
+        <li class="box" id="box-5"></li>
+        <li class="box box-to-select-2" id="box-6"></li>
+        <li class="box box-to-select-2" id="box-7"></li>
+        <li class="box box-to-select-2" id="box-8"></li>
+      </ul>
+    </div>
+
+    <script>
+      //Get element by id
+      const box1 = document.getElementById("box-1");
+      box1.addEventListener("click", function(event) {
+        //change color of box1
+        event.target.style.backgroundColor = "#ebebeb";
+        //add text to element
+        event.target.innerHTML = "clicked";
+        //add class to element
+        event.target.classList.add("clickedStyle");
+      });
+      //Get element by className
+      var boxes = document.getElementsByClassName("box-to-select");
+      for (const element of boxes) {
+        element.addEventListener("click", function(event) {
+          //change color of boxes have class "box-to-select"
+          event.target.style.backgroundColor = "#ebebeb";
+          //add text to elements
+          event.target.innerHTML = "clicked";
+        });
+      }
+
+      //Iterate boxes through a For of loop to add functionallity
+      //Get Element with qeurySelector
+      const box5 = document.querySelector("#box-5");
+      box5.addEventListener("click", function(event) {
+        event.target.style.backgroundColor = "#ebebeb";
+        //add text to element
+        event.target.innerHTML = "clicked";
+      });
+      //Get element by querySelectorAll
+      //Iterate boxes through a For of loop to add functionallity
+      const AllBoxes = document.querySelectorAll(".box-to-select-2");
+      for (const element of AllBoxes) {
+        element.addEventListener("click", function(event) {
+          event.target.style.backgroundColor = "#ebebeb";
+          //add text to element
+          event.target.innerHTML = "clicked";
+        });
+      }
+    </script>
+  </body>
+</html>
